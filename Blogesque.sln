@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogesque.Data", "Blogesque
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogesque.Services", "Blogesque.Services\Blogesque.Services.csproj", "{7DCBA597-2A0D-4745-A7D6-51DA52B0D9C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogesque.Mvc", "Blogesque.Mvc\Blogesque.Mvc.csproj", "{15C6F51D-5172-49F6-84D3-6BF238F0DD2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogesque.Mvc", "Blogesque.Mvc\Blogesque.Mvc.csproj", "{15C6F51D-5172-49F6-84D3-6BF238F0DD2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
