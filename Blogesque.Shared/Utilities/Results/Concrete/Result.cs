@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Blogesque.Shared.Utilities.Results.Abstract;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
 
-namespace Blogesque.Shared.Utilities.Concrete
+namespace Blogesque.Shared.Utilities.Results.Concrete
 {
     public class Result : IResult
     {
