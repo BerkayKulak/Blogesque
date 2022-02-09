@@ -7,10 +7,10 @@ using Blogesque.Shared.Entities.Abstract;
 
 namespace Blogesque.Entities.Concrete
 {
-    public class Role : EntityBase, IEntity
+    public class Comment : EntityBase, IEntity
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public ICollection<User> Users { get; set; }
+        public string Text { get; set; }
+        public int ArticleId { get; set; }
+        public Article Article { get; set; }
     }
 }
