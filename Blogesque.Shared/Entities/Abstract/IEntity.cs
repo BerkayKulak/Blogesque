@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blogesque.Shared.Entities.Abstract
 {
-    internal interface IEntity
+    public interface IEntity
     {
     }
 }
