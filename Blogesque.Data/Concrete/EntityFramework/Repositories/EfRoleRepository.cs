@@ -8,11 +8,11 @@ using Blogesque.Entities.Concrete;
 using Blogesque.Shared.Data.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blogesque.Data.Concrete
+namespace Blogesque.Data.Concrete.EntityFramework.Repositories
 {
-    public class CommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
+    public class EfRoleRepository : EfEntityRepositoryBase<Role>, IRoleRepository
     {
-        public CommentRepository(DbContext context) : base(context)
+        public EfRoleRepository(DbContext context) : base(context)
         {
         }
     }

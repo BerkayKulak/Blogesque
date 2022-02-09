@@ -8,13 +8,12 @@ using Blogesque.Entities.Concrete;
 using Blogesque.Shared.Data.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blogesque.Data.Concrete
+namespace Blogesque.Data.Concrete.EntityFramework.Repositories
 {
-    public class ArticleRepository : EfEntityRepositoryBase<Article>, IArticleRepository
+    public class EfCommentRepository : EfEntityRepositoryBase<Comment>, ICommentRepository
     {
-        public ArticleRepository(DbContext context) : base(context)
+        public EfCommentRepository(DbContext context) : base(context)
         {
         }
-
     }
 }
