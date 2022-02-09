@@ -18,8 +18,4 @@
     <ProjectReference Include="..\Blogesque.Shared\Blogesque.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Concrete\EntityFramework\Mappings\" />
-  </ItemGroup>
-
 </Project>
