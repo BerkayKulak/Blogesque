@@ -8,11 +8,11 @@ using Blogesque.Entities.Concrete;
 using Blogesque.Shared.Data.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blogesque.Data.Concrete
+namespace Blogesque.Data.Concrete.EntityFramework.Repositories
 {
-    public class UserRepository : EfEntityRepositoryBase<User>, IUserRepository
+    public class EfUserRepository : EfEntityRepositoryBase<User>, IUserRepository
     {
-        public UserRepository(DbContext context) : base(context)
+        public EfUserRepository(DbContext context) : base(context)
         {
         }
     }
