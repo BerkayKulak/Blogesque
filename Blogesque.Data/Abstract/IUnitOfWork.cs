@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blogesque.Data.Abstract
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IAsyncDisposable
     {
         IArticleRepository Articles { get; } // unitofwork.Articles
         ICategoryRepository Categories { get; }
