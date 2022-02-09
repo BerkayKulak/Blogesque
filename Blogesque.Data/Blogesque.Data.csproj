@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blogesque.Entities\Blogesque.Entities.csproj" />
+    <ProjectReference Include="..\Blogesque.Shared\Blogesque.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
