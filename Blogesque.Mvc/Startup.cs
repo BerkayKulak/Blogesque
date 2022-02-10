@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Blogesque.Mvc.Automapper.Profiles;
 using Blogesque.Services.AutoMapper.Profiles;
 using Blogesque.Services.Extensions;
 
@@ -25,7 +26,7 @@ namespace Blogesque.Mvc
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
             });
             services.AddSession();
-            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile));
+            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile),typeof(UserProfile));
             services.LoadMyServices();
             services.ConfigureApplicationCookie(options =>
             {
