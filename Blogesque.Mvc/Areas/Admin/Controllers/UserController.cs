@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using AutoMapper;
 using Blogesque.Entities.Concrete;
@@ -37,6 +38,20 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 Users = users,
                 ResultStatus = ResultStatus.Success
             });
+        }
+        [HttpGet]
+        public async Task<JsonResult> GetAllUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var userListDto = JsonSerializer.Serialize(new UserListDto
+            {
+                Users = users,
+                ResultStatus = ResultStatus.Success
+            }, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(userListDto);
         }
         [HttpGet]
         public IActionResult Add()
