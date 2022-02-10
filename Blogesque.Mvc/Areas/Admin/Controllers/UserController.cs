@@ -6,7 +6,6 @@ using AutoMapper;
 using Blogesque.Entities.Concrete;
 using Blogesque.Entities.Dtos;
 using Blogesque.Mvc.Areas.Admin.Models;
-using Blogesque.Mvc.Areas.Admin.Views.Category;
 using Blogesque.Shared.Utilities.Extensions;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Hosting;
