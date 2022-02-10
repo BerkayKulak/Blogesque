@@ -316,6 +316,12 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return View(userUpdateDto);
             }
         }
+        [Authorize]
+        [HttpGet]
+        public ViewResult PasswordChange()
+        {
+            return View();
+        }
         [Authorize(Roles = "Admin,Editor")]
         public async Task<string> ImageUpload(string userName, IFormFile pictureFile)
         {
