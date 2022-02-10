@@ -4,14 +4,16 @@ using Blogesque.Data.Concrete.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Blogesque.Data.Migrations
 {
     [DbContext(typeof(ProgrammersBlogContext))]
-    partial class ProgrammersBlogContextModelSnapshot : ModelSnapshot
+    [Migration("20220210194052_Secondary")]
+    partial class Secondary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,12 +158,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(1528),
+                            CreatedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(5808),
                             Description = "C# Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(2405),
+                            ModifiedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(6547),
                             Name = "C#",
                             Note = "C# Blog Kategorisi"
                         },
@@ -169,12 +171,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(3106),
+                            CreatedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(7182),
                             Description = "C++ Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(3107),
+                            ModifiedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(7183),
                             Name = "C++",
                             Note = "C++ Blog Kategorisi"
                         },
@@ -182,12 +184,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(3113),
+                            CreatedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(7188),
                             Description = "JavaScript Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 22, 43, 34, 488, DateTimeKind.Local).AddTicks(3114),
+                            ModifiedDate = new DateTime(2022, 2, 10, 22, 40, 51, 561, DateTimeKind.Local).AddTicks(7190),
                             Name = "JavaScript",
                             Note = "JavaScript Blog Kategorisi"
                         });
@@ -273,14 +275,14 @@ namespace Blogesque.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "4f423258-a4fa-4b11-baa3-804998479380",
+                            ConcurrencyStamp = "be4d5b50-a3c7-48d5-bec9-dff7e8410c27",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "ea4914c5-18d5-465a-84ed-7091cd5f125c",
+                            ConcurrencyStamp = "75bf372e-ec87-42eb-91db-40534dffee31",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         });
@@ -385,17 +387,17 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a89d9f4a-38be-4b58-9061-e71686acd579",
+                            ConcurrencyStamp = "0bf67fbb-c4df-4bd9-b515-42389319a401",
                             Email = "adminuser@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINUSER@GMAIL.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEZNjCIkx2aGwAdGNVedLpu9Rw/6k60COy00olOlS2vMLPN+CsNWUEVjw5bJXp8fhA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC6WnAnChgEbWK7MsbeRMkklL6f9poc1Z0GAvFw9v4vvLuUAhvQUlmBQUTxVNCSMdg==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "defaultUser.png",
-                            SecurityStamp = "d4b0a63b-65d4-46b1-b07e-6dd8df11a234",
+                            SecurityStamp = "4baf616f-48fb-4ffc-9c38-b8cc50bc4dfd",
                             TwoFactorEnabled = false,
                             UserName = "adminuser"
                         },
@@ -403,17 +405,17 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5939a247-ec2d-44e8-9fb0-28fa61b55b96",
+                            ConcurrencyStamp = "85ca3151-36a0-40c8-88a7-7c75543a7f71",
                             Email = "editoruser@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITORUSER@GMAIL.COM",
                             NormalizedUserName = "EDITORUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJuDXdWSc7hT5wOexGYuB2JlZiu/xr80e1r/mmB6rEUC1ooBjS/kWeV+6W7G8CzoGw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAOLDpXad+XYOc3cXj25A0/3gzp19F1My5XDlsQUgMz6TQRFjV/XVyZNpoRCZ1ruvg==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "defaultUser.png",
-                            SecurityStamp = "1cd8579f-7522-4ae5-b034-6f3b713d5ca7",
+                            SecurityStamp = "09fe4db6-8179-4260-8173-78050c1ccd26",
                             TwoFactorEnabled = false,
                             UserName = "editoruser"
                         });
