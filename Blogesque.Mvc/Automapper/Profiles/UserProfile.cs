@@ -9,6 +9,7 @@ namespace Blogesque.Mvc.Automapper.Profiles
         public UserProfile()
         {
             CreateMap<UserAddDto, User>();
+            CreateMap<User, UserUpdateDto>();
         }
     }
 }
