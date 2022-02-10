@@ -6,11 +6,13 @@ using Blogesque.Mvc.Areas.Admin.Models;
 using Blogesque.Services.Abstract;
 using Blogesque.Shared.Utilities.Extensions;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogesque.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
