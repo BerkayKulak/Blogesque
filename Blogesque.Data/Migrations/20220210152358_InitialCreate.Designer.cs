@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blogesque.Data.Migrations
 {
     [DbContext(typeof(ProgrammersBlogContext))]
-    [Migration("20220210121140_InitialCreate")]
+    [Migration("20220210152358_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,12 +158,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(5696),
+                            CreatedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(6302),
                             Description = "C# Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(6292),
+                            ModifiedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(6821),
                             Name = "C#",
                             Note = "C# Blog Kategorisi"
                         },
@@ -171,12 +171,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(7410),
+                            CreatedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(7329),
                             Description = "C++ Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(7411),
+                            ModifiedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(7330),
                             Name = "C++",
                             Note = "C++ Blog Kategorisi"
                         },
@@ -184,12 +184,12 @@ namespace Blogesque.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(7416),
+                            CreatedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(7334),
                             Description = "JavaScript Programlama Dili ile İlgili En Güncel Bilgiler",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 2, 10, 15, 11, 39, 550, DateTimeKind.Local).AddTicks(7417),
+                            ModifiedDate = new DateTime(2022, 2, 10, 18, 23, 58, 222, DateTimeKind.Local).AddTicks(7336),
                             Name = "JavaScript",
                             Note = "JavaScript Blog Kategorisi"
                         });
@@ -270,6 +270,22 @@ namespace Blogesque.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "f3d53496-c9fb-4693-b7a4-cf2c313a89a8",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ConcurrencyStamp = "607c7052-a67b-4a25-a057-f2d579e5a533",
+                            Name = "Editor",
+                            NormalizedName = "EDITOR"
+                        });
                 });
 
             modelBuilder.Entity("Blogesque.Entities.Concrete.RoleClaim", b =>
@@ -365,6 +381,44 @@ namespace Blogesque.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3a0e4464-9e45-4559-8fa8-780f799db089",
+                            Email = "adminuser@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMINUSER@GMAIL.COM",
+                            NormalizedUserName = "ADMINUSER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDE74U2ps8Vrk8gJP2bzZ4JzYGQrh5NTrzYebKIzyT+RX9o6zAnBbwOqYmwvppzXXw==",
+                            PhoneNumber = "+905555555555",
+                            PhoneNumberConfirmed = true,
+                            Picture = "defaultUser.png",
+                            SecurityStamp = "a9f15c7c-36fe-4033-b423-e191114e5b69",
+                            TwoFactorEnabled = false,
+                            UserName = "adminuser"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3d25b9e0-a20e-4d5e-8ddf-13385e7a0077",
+                            Email = "editoruser@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "EDITORUSER@GMAIL.COM",
+                            NormalizedUserName = "EDITORUSER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEClolDtkDIIED5tr/e4XWo7U5KOUUipVvHfuMDknqeG73dhqPeykHZ96hTYJIkQzEw==",
+                            PhoneNumber = "+905555555555",
+                            PhoneNumberConfirmed = true,
+                            Picture = "defaultUser.png",
+                            SecurityStamp = "20fc3baf-6b5c-4182-9df0-696491f898c6",
+                            TwoFactorEnabled = false,
+                            UserName = "editoruser"
+                        });
                 });
 
             modelBuilder.Entity("Blogesque.Entities.Concrete.UserClaim", b =>
