@@ -51,5 +51,27 @@ namespace Blogesque.Mvc.Helpers.Concrete
                 Size = pictureFile.Length
             });
         }
+
+        public IDataResult<ImageDeletedDto> Delete(string pictureName)
+        {
+            var fileToDelete = Path.Combine($"{_wwwroot}/{imgFolder}/", pictureName);
+            if (System.IO.File.Exists(fileToDelete))
+            {
+                var fileInfo = new FileInfo(fileToDelete);
+                var imageDeletedDto = new ImageDeletedDto
+                {
+                    FullName = pictureName,
+                    Extension = fileInfo.Extension,
+                    Path = fileInfo.FullName,
+                    Size = fileInfo.Length
+                };
+                System.IO.File.Delete(fileToDelete);
+                return new DataResult<ImageDeletedDto>(ResultStatus.Success, imageDeletedDto);
+            }
+            else
+            {
+                return new DataResult<ImageDeletedDto>(ResultStatus.Error, $"Böyle bir resim bulunamadı.", null);
+            }
+        }
     }
 }

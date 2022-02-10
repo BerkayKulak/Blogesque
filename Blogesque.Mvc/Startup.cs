@@ -36,10 +36,10 @@ namespace Blogesque.Mvc
                 {
                     Name = "ProgrammersBlog",
                     HttpOnly = true,
-                    //SameSite = SameSiteMode.Strict,
-                    //SecurePolicy = CookieSecurePolicy.SameAsRequest // Always
+                    SameSite = SameSiteMode.Strict,
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest // Always
                 };
-                //options.SlidingExpiration = true;
+                options.SlidingExpiration = true;
                 options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
                 options.AccessDeniedPath = new PathString("/Admin/User/AccessDenied");
             });
