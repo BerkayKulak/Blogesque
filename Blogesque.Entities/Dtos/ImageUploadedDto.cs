@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blogesque.Entities.Dtos
 {
-    public class UploadedImageDto
+    public class ImageUploadedDto
     {
         public string FullName { get; set; }
         public string OldName { get; set; }
