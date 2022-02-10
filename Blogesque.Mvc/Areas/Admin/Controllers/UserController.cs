@@ -48,13 +48,6 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         {
             return View("UserLogin");
         }
-
-        [HttpGet]
-        public ViewResult AccessDenied()
-        {
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginDto userLoginDto)
         {
@@ -86,6 +79,13 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return View("UserLogin");
             }
 
+        }
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home", new { Area = "" });
         }
         [Authorize(Roles = "Admin")]
         [HttpGet]
@@ -154,6 +154,11 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             });
             return Json(userAddAjaxModelStateErrorModel);
 
+        }
+        [HttpGet]
+        public ViewResult AccessDenied()
+        {
+            return View();
         }
         [Authorize(Roles = "Admin")]
         public async Task<JsonResult> Delete(int userId)
