@@ -41,6 +41,11 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             });
         }
         [HttpGet]
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
+        [HttpGet]
         public async Task<JsonResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -64,7 +69,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                userAddDto.Picture = await ImageUpload(userAddDto.UserName,userAddDto.PictureFile);
+                userAddDto.Picture = await ImageUpload(userAddDto.UserName, userAddDto.PictureFile);
                 var user = _mapper.Map<User>(userAddDto);
                 var result = await _userManager.CreateAsync(user, userAddDto.Password);
                 if (result.Succeeded)
@@ -138,7 +143,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return Json(deletedUserErrorModel);
             }
         }
-
+        [HttpGet]
         public async Task<PartialViewResult> Update(int userId)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
@@ -206,7 +211,6 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return Json(userUpdateModelStateErrorViewModel);
             }
         }
-
         public async Task<string> ImageUpload(string userName, IFormFile pictureFile)
         {
             // ~/img/user.Picture
