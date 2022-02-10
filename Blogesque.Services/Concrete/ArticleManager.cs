@@ -167,7 +167,7 @@ namespace Blogesque.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<int>> CountByIsDeleted()
+        public async Task<IDataResult<int>> CountByNonDeleted()
         {
             var articlesCount = await _unitOfWork.Articles.CountAsync(a => !a.IsDeleted);
             if (articlesCount > -1)
