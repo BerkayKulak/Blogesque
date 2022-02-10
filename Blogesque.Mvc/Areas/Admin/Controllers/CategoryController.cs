@@ -69,8 +69,8 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         public async Task<JsonResult> Delete(int categoryId)
         {
             var result = await _categoryService.Delete(categoryId, "Alper Tunga");
-            var ajaxResult = JsonSerializer.Serialize(result);
-            return Json(ajaxResult);
+            var deletedCategory = JsonSerializer.Serialize(result.Data);
+            return Json(deletedCategory);
         }
     }
 }
