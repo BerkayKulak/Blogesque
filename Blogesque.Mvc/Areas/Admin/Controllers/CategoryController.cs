@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Blogesque.Entities.Dtos;
 using Blogesque.Mvc.Areas.Admin.Models;
@@ -52,6 +53,24 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             });
             return Json(categoryAddAjaxErrorModel);
 
+        }
+
+        public async Task<JsonResult> GetAllCategories()
+        {
+            var result = await _categoryService.GetAllByNonDeleted();
+            var categories = JsonSerializer.Serialize(result.Data, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(categories);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int categoryId)
+        {
+            var result = await _categoryService.Delete(categoryId, "Alper Tunga");
+            var ajaxResult = JsonSerializer.Serialize(result);
+            return Json(ajaxResult);
         }
     }
 }
