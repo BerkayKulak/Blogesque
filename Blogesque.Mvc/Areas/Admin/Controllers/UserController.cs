@@ -7,6 +7,7 @@ using AutoMapper;
 using Blogesque.Entities.Concrete;
 using Blogesque.Entities.Dtos;
 using Blogesque.Mvc.Areas.Admin.Models;
+using Blogesque.Mvc.Helpers.Abstract;
 using Blogesque.Shared.Utilities.Extensions;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Authorization;
@@ -23,15 +24,15 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly IWebHostEnvironment _env;
         private readonly IMapper _mapper;
+        private readonly IImageHelper _imageHelper;
 
-        public UserController(UserManager<User> userManager, IWebHostEnvironment env, IMapper mapper, SignInManager<User> signInManager)
+        public UserController(UserManager<User> userManager, IMapper mapper, SignInManager<User> signInManager, IImageHelper imageHelper)
         {
             _userManager = userManager;
-            _env = env;
             _mapper = mapper;
             _signInManager = signInManager;
+            _imageHelper = imageHelper;
         }
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
@@ -114,7 +115,10 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                userAddDto.Picture = await ImageUpload(userAddDto.UserName, userAddDto.PictureFile);
+                var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userAddDto.UserName, userAddDto.PictureFile);
+                userAddDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
+                    ? uploadedImageDtoResult.Data.FullName
+                    : "userImages/defaultUser.png";
                 var user = _mapper.Map<User>(userAddDto);
                 var result = await _userManager.CreateAsync(user, userAddDto.Password);
                 if (result.Succeeded)
@@ -212,7 +216,10 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 var oldUserPicture = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    userUpdateDto.Picture = await ImageUpload(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
+                        ? uploadedImageDtoResult.Data.FullName
+                        : "userImages/defaultUser.png";
                     isNewPictureUploaded = true;
                 }
 
@@ -281,7 +288,10 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 var oldUserPicture = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    userUpdateDto.Picture = await ImageUpload(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
+                        ? uploadedImageDtoResult.Data.FullName
+                        : "userImages/defaultUser.png";
                     if (oldUserPicture != "defaultUser.png")
                     {
                         isNewPictureUploaded = true;
@@ -365,39 +375,20 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
 
         }
         [Authorize(Roles = "Admin,Editor")]
-        public async Task<string> ImageUpload(string userName, IFormFile pictureFile)
-        {
-            // ~/img/user.Picture
-            string wwwroot = _env.WebRootPath;
-            // alpertunga     
-            // string fileName2 = Path.GetFileNameWithoutExtension(pictureFile.FileName);
-            //.png
-            string fileExtension = Path.GetExtension(pictureFile.FileName);
-            DateTime dateTime = DateTime.Now;
-            // AlperTunga_587_5_38_12_3_10_2020.png
-            string fileName = $"{userName}_{dateTime.FullDateAndTimeStringWithUnderscore()}{fileExtension}";
-            var path = Path.Combine($"{wwwroot}/img", fileName);
-            await using (var stream = new FileStream(path, FileMode.Create))
-            {
-                await pictureFile.CopyToAsync(stream);
-            }
-
-            return fileName; // AlperTunga_587_5_38_12_3_10_2020.png - "~/img/user.Picture"
-        }
-        [Authorize(Roles = "Admin,Editor")]
         public bool ImageDelete(string pictureName)
         {
-            string wwwroot = _env.WebRootPath;
-            var fileToDelete = Path.Combine($"{wwwroot}/img", pictureName);
-            if (System.IO.File.Exists(fileToDelete))
-            {
-                System.IO.File.Delete(fileToDelete);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //string wwwroot = _env.WebRootPath;
+            //var fileToDelete = Path.Combine($"{wwwroot}/img", pictureName);
+            //if (System.IO.File.Exists(fileToDelete))
+            //{
+            //    System.IO.File.Delete(fileToDelete);
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+            return true;
         }
     }
 }

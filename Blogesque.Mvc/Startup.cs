@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
 using Blogesque.Mvc.Automapper.Profiles;
+using Blogesque.Mvc.Helpers.Abstract;
+using Blogesque.Mvc.Helpers.Concrete;
 using Blogesque.Services.AutoMapper.Profiles;
 using Blogesque.Services.Extensions;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +27,7 @@ namespace Blogesque.Mvc
             services.AddSession();
             services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile));
             services.LoadMyServices();
+            services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = new PathString("/Admin/User/Login");
@@ -33,10 +36,10 @@ namespace Blogesque.Mvc
                 {
                     Name = "ProgrammersBlog",
                     HttpOnly = true,
-                    SameSite = SameSiteMode.Strict,
-                    SecurePolicy = CookieSecurePolicy.SameAsRequest // Always
+                    //SameSite = SameSiteMode.Strict,
+                    //SecurePolicy = CookieSecurePolicy.SameAsRequest // Always
                 };
-                options.SlidingExpiration = true;
+                //options.SlidingExpiration = true;
                 options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
                 options.AccessDeniedPath = new PathString("/Admin/User/AccessDenied");
             });
