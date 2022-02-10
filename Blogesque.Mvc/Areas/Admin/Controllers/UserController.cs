@@ -48,6 +48,13 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         {
             return View("UserLogin");
         }
+
+        [HttpGet]
+        public ViewResult AccessDenied()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginDto userLoginDto)
         {
