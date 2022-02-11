@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Blogesque.Entities.Concrete;
 using Blogesque.Entities.Dtos;
 using Blogesque.Services.Abstract;
+using Blogesque.Shared.Utilities.Helpers.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using NToastNotify;
@@ -15,12 +16,14 @@ namespace Blogesque.Mvc.Controllers
         private readonly AboutUsPageInfo _aboutUsPageInfo;
         private readonly IMailService _mailService;
         private readonly IToastNotification _toastNotification;
+        private readonly IWritableOptions<AboutUsPageInfo> _aboutUsPageInfoWriter;
 
-        public HomeController(IArticleService articleService, IOptionsSnapshot<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification)
+        public HomeController(IArticleService articleService, IOptionsSnapshot<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter)
         {
             _articleService = articleService;
             _mailService = mailService;
             _toastNotification = toastNotification;
+            _aboutUsPageInfoWriter = aboutUsPageInfoWriter;
             _aboutUsPageInfo = aboutUsPageInfo.Value;
         }
         [HttpGet]
@@ -34,6 +37,11 @@ namespace Blogesque.Mvc.Controllers
         [HttpGet]
         public IActionResult About()
         {
+            _aboutUsPageInfoWriter.Update(x =>
+            {
+                x.Header = "Yeni Başlık";
+                x.Content = "Yeni İçerik";
+            });
             return View(_aboutUsPageInfo);
         }
         [HttpGet]

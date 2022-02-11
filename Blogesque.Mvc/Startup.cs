@@ -11,6 +11,7 @@ using Blogesque.Mvc.Helpers.Abstract;
 using Blogesque.Mvc.Helpers.Concrete;
 using Blogesque.Services.AutoMapper.Profiles;
 using Blogesque.Services.Extensions;
+using Blogesque.Shared.Utilities.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
@@ -29,6 +30,7 @@ namespace Blogesque.Mvc
             services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));
             services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.ConfigureWritable<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boþ geçilmemelidir.");
