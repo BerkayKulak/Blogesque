@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Blogesque.Entities.ComplexTypes;
 using Blogesque.Entities.Concrete;
+using Blogesque.Mvc.Attributes;
 using Blogesque.Mvc.Models;
 using Blogesque.Services.Abstract;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
@@ -33,6 +34,7 @@ namespace Blogesque.Mvc.Controllers
             return NotFound();
         }
         [HttpGet]
+        [ViewCountFilter]
         public async Task<IActionResult> Detail(int articleId)
         {
             var articleResult = await _articleService.GetAsync(articleId);
@@ -41,7 +43,7 @@ namespace Blogesque.Mvc.Controllers
                 var userArticles = await _articleService.GetAllByUserIdOnFilter(articleResult.Data.Article.UserId,
                     _articleRightSideBarWidgetOptions.FilterBy, _articleRightSideBarWidgetOptions.OrderBy, _articleRightSideBarWidgetOptions.IsAscending, _articleRightSideBarWidgetOptions.TakeSize, _articleRightSideBarWidgetOptions.CategoryId, _articleRightSideBarWidgetOptions.StartAt,
                     _articleRightSideBarWidgetOptions.EndAt, _articleRightSideBarWidgetOptions.MinViewCount, _articleRightSideBarWidgetOptions.MaxViewCount, _articleRightSideBarWidgetOptions.MinCommentCount, _articleRightSideBarWidgetOptions.MaxCommentCount);
-                await _articleService.IncreaseViewCountAsync(articleId);
+                //await _articleService.IncreaseViewCountAsync(articleId);
                 return View(new ArticleDetailViewModel
                 {
                     ArticleDto = articleResult.Data,
