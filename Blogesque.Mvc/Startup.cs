@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
 using Blogesque.Entities.Concrete;
 using Blogesque.Mvc.Automapper.Profiles;
+using Blogesque.Mvc.Filters;
 using Blogesque.Mvc.Helpers.Abstract;
 using Blogesque.Mvc.Helpers.Concrete;
 using Blogesque.Services.AutoMapper.Profiles;
@@ -30,6 +31,7 @@ namespace Blogesque.Mvc
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boþ geçilmemelidir.");
+                options.Filters.Add<MvcExceptionFilter>();
             }).AddRazorRuntimeCompilation().AddJsonOptions(opt =>
             {
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
