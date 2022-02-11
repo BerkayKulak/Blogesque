@@ -1,4 +1,4 @@
-﻿@model ProgrammersBlog.Entities.Dtos.ArticleListDto
+﻿@model Blogesque.Entities.Dtos.ArticleListDto
 @{
     Layout = "_Layout";
     ViewBag.Title = "Makaleler";
@@ -54,7 +54,7 @@
                 <tbody>
                 @foreach (var article in Model.Articles)
                 {
-                    <tr>
+                    <tr name="@article.Id">
                         <td>@article.Id</td>
                         <td>@article.Category.Name</td>
                         <td>@article.Title</td>
