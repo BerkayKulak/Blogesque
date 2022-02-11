@@ -2,7 +2,7 @@
 
     /* DataTables start here. */
 
-   const dataTable = $('#articlesTable').DataTable({
+    const dataTable = $('#articlesTable').DataTable({
         dom:
             "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
             "<'row'<'col-sm-12'tr>>" +
@@ -15,6 +15,9 @@
                 },
                 className: 'btn btn-success',
                 action: function (e, dt, node, config) {
+                    let url = window.location.href;
+                    url = url.replace("/Index", "");
+                    window.open(`${url}/Add`, "_self");
                 }
             },
             {
@@ -36,7 +39,7 @@
                             if (userListDto.ResultStatus === 0) {
                                 $.each(userListDto.Users.$values,
                                     function (index, user) {
-                                       const newTableRow =  dataTable.row.add([
+                                        const newTableRow = dataTable.row.add([
                                             user.Id,
                                             user.UserName,
                                             user.Email,
@@ -46,7 +49,7 @@
                                 <button class="btn btn-primary btn-sm btn-update" data-id="${user.Id}"><span class="fas fa-edit"></span></button>
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="${user.Id}"><span class="fas fa-minus-circle"></span></button>
                                             `
-                                       ]).node();
+                                        ]).node();
                                         const jqueryTableRow = $(newTableRow);
                                         jqueryTableRow.attr('name', `${user.Id}`);
                                     });
