@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Blogesque.Entities.ComplexTypes;
 using Blogesque.Entities.Dtos;
@@ -44,6 +45,11 @@ namespace Blogesque.Mvc.Helpers.Concrete
 
             /* Resimin uzantısı fileExtension adlı değişkene atanır. */
             string fileExtension = Path.GetExtension(pictureFile.FileName);
+
+
+            Regex regex = new Regex("[*'\",._&#^@]");
+            name = regex.Replace(name, string.Empty);
+
 
             DateTime dateTime = DateTime.Now;
             /*
