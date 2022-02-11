@@ -12,13 +12,14 @@ using Microsoft.EntityFrameworkCore;
 namespace Blogesque.Shared.Data.Concrete.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
-    where TEntity : class, IEntity, new()
+     where TEntity : class, IEntity, new()
     {
         protected readonly DbContext _context;
 
         public EfEntityRepositoryBase(DbContext context)
         {
             _context = context;
+            //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         public async Task<TEntity> AddAsync(TEntity entity)
         {
@@ -50,7 +51,7 @@ namespace Blogesque.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.ToListAsync();
+            return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
@@ -84,7 +85,7 @@ namespace Blogesque.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.ToListAsync();
+            return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
@@ -100,7 +101,7 @@ namespace Blogesque.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.SingleOrDefaultAsync();
+            return await query.AsNoTracking().SingleOrDefaultAsync();
         }
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
