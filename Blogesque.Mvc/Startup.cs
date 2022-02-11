@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
+using Blogesque.Entities.Concrete;
 using Blogesque.Mvc.Automapper.Profiles;
 using Blogesque.Mvc.Helpers.Abstract;
 using Blogesque.Mvc.Helpers.Concrete;
@@ -24,6 +25,8 @@ namespace Blogesque.Mvc
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));
+            services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boþ geçilmemelidir.");
