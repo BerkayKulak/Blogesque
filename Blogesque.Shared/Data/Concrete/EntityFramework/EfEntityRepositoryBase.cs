@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Blogesque.Shared.Data.Abstract;
 using Blogesque.Shared.Entities.Abstract;
+using LinqKit;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blogesque.Shared.Data.Concrete.EntityFramework
@@ -30,10 +31,15 @@ namespace Blogesque.Shared.Data.Concrete.EntityFramework
             IQueryable<TEntity> query = _context.Set<TEntity>();
             if (predicates.Any())
             {
+                var predicateChain = PredicateBuilder.New<TEntity>();
                 foreach (var predicate in predicates)
                 {
-                    query = query.Where(predicate);
+                    // predicate1 && predicate2 && predicate3 && predicateN
+                    // predicate1 || predicate2 || predicate3 || predicateN
+                    predicateChain.Or(predicate);
                 }
+
+                query = query.Where(predicateChain);
             }
 
             if (includeProperties.Any())
