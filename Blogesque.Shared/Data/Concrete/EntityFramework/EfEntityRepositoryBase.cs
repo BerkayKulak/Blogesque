@@ -87,6 +87,11 @@ namespace Blogesque.Shared.Data.Concrete.EntityFramework
             return await (predicate == null ? _context.Set<TEntity>().CountAsync() : _context.Set<TEntity>().CountAsync(predicate));
         }
 
+        public IQueryable<TEntity> GetAsQueryable()
+        {
+            return _context.Set<TEntity>().AsQueryable();
+        }
+
         public async Task DeleteAsync(TEntity entity)
         {
             await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
