@@ -26,5 +26,7 @@ namespace Blogesque.Shared.Data.Abstract
             params Expression<Func<T, object>>[] includeProperties);
         Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
         Task<int> CountAsync(Expression<Func<T, bool>> predicate = null);
+
+        IQueryable<T> GetAsQueryable();
     }
 }
