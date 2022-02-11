@@ -11,26 +11,26 @@
         Son Paylaşılan Makaleler
     </h1>
 
-   @foreach (var article in Model.Articles)
-   {
-       <!-- Blog Post -->
-       <div class="card mb-4">
-           <img class="card-img-top" src="~/img/@article.Thumbnail" alt="@article.Title">
-           <div class="card-body">
-               <h2 class="card-title">@article.Title</h2>
-               <p class="card-text">
-                   @{
-                       article.Content = regex.Replace(article.Content, "");
-                   }
-                   @(article.Content.Length>250 ? article.Content.Substring(0,250) : article.Content)
-               </p>
-               <a asp-controller="Article" asp-action="Detail" class="btn btn-primary">Daha fazla oku &rarr;</a>
-           </div>
-           <div class="card-footer text-muted">
-               @article.User.UserName tarafından @article.Date tarihinde paylaşıldı.
-           </div>
-       </div>
-   }
+    @foreach (var article in Model.Articles)
+    {
+        <!-- Blog Post -->
+        <div class="card mb-4">
+            <img class="card-img-top" src="~/img/@article.Thumbnail" alt="@article.Title">
+            <div class="card-body">
+                <h2 class="card-title">@article.Title</h2>
+                <p class="card-text">
+                    @{
+                        article.Content = regex.Replace(article.Content, "");
+                    }
+                    @(article.Content.Length>250 ? article.Content.Substring(0,250) : article.Content)
+                </p>
+                <a asp-controller="Article" asp-action="Detail" asp-route-articleId="@article.Id" class="btn btn-primary">Daha fazla oku &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+                @article.User.UserName tarafından @article.Date tarihinde paylaşıldı.
+            </div>
+        </div>
+    }
 
     <!-- Pagination -->
     <ul class="pagination justify-content-center mb-4">
