@@ -1,4 +1,7 @@
-﻿$(document).ready(function() {
+﻿$(document).ready(function () {
+
+    // Trumbowyg
+
     $('#text-editor').trumbowyg({
         btns: [
             ['viewHTML'],
@@ -21,7 +24,7 @@
         plugins: {
             colors: {
                 foreColorList: [
-                    'ff0000', '00ff00', '0000ff','54e346'
+                    'ff0000', '00ff00', '0000ff', '54e346'
                 ],
                 backColorList: [
                     '000', '333', '555'
@@ -29,5 +32,15 @@
                 displayAsList: false
             }
         }
+    });
+
+    // Trumbowyg
+
+    // Select2
+
+    $('#categoryList').select2({
+        theme: 'bootstrap4',
+        placeholder: "Lütfen bir kategori seçiniz...",
+        allowClear: true
     });
 });
