@@ -28,7 +28,7 @@ namespace Blogesque.Mvc.Helpers.Concrete
             _wwwroot = _env.WebRootPath;
         }
 
-        public async Task<IDataResult<ImageUploadedDto>> Upload(string name, IFormFile pictureFile, PictureType pictureType, string folderName = null)
+        public string Upload(string name, IFormFile pictureFile, PictureType pictureType, string folderName = null)
         {
 
             /* Eğer folderName değişkeni null gelir ise, o zaman resim tipine göre (PictureType) klasör adı ataması yapılır. */
@@ -62,9 +62,9 @@ namespace Blogesque.Mvc.Helpers.Concrete
             var path = Path.Combine($"{_wwwroot}/{imgFolder}/{folderName}", newFileName);
 
             /* Sistemimiz için oluşturulan yeni dosya yoluna resim kopyalanır. */
-            await using (var stream = new FileStream(path, FileMode.Create))
+            using (var stream = new FileStream(path, FileMode.Create))
             {
-                await pictureFile.CopyToAsync(stream);
+                pictureFile.CopyTo(stream);
             }
 
             /* Resim tipine göre kullanıcı için bir mesaj oluşturulur. */
@@ -72,15 +72,7 @@ namespace Blogesque.Mvc.Helpers.Concrete
                 ? $"{name} adlı kullanıcının resimi başarıyla yüklenmiştir."
                 : $"{name} adlı makalenin resimi başarıyla yüklenmiştir.";
 
-            return new DataResult<ImageUploadedDto>(ResultStatus.Success, nameMessage, new ImageUploadedDto
-            {
-                FullName = $"{folderName}/{newFileName}",
-                OldName = oldFileName,
-                Extension = fileExtension,
-                FolderName = folderName,
-                Path = path,
-                Size = pictureFile.Length
-            });
+            return $"{folderName}/{newFileName}";
         }
 
         public IDataResult<ImageDeletedDto> Delete(string pictureName)
