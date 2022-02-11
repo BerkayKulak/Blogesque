@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Blogesque.Entities.Concrete;
 using Blogesque.Entities.Dtos;
 using Blogesque.Services.Abstract;
@@ -28,6 +29,7 @@ namespace Blogesque.Mvc.Controllers
         [HttpGet]
         public IActionResult About()
         {
+            throw new Exception("Hata!");
             return View(_aboutUsPageInfo);
         }
         [HttpGet]
