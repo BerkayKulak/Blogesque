@@ -237,7 +237,7 @@
 
     // Get Detail Ajax Operation
 
-    $(function() {
+    $(function () {
 
         const url = '/Admin/Comment/GetDetail/';
         const placeHolderDiv = $('#modalPlaceHolder');
@@ -322,7 +322,7 @@
                 }
             });
         });
-    
+
     function getButtonsForDataTable(comment) {
         if (!comment.IsActive) {
             return `
