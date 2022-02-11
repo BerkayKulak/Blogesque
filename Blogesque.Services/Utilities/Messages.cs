@@ -8,7 +8,13 @@ namespace Blogesque.Services.Utilities
 {
     public static class Messages
     {
-        // Messages.Category.NotFound()
+        public static class General
+        {
+            public static string ValidationError()
+            {
+                return $"Bir veya daha fazla validasyon hatası ile karşılaşıldı.";
+            }
+        }
         public static class Category
         {
             public static string NotFound(bool isPlural)
@@ -16,7 +22,10 @@ namespace Blogesque.Services.Utilities
                 if (isPlural) return "Hiç bir kategori bulunamadı.";
                 return "Böyle bir kategori bulunamadı.";
             }
-
+            public static string NotFoundById(int categoryId)
+            {
+                return $"{categoryId} kategori koduna ait bir kategori bulunamadı.";
+            }
             public static string Add(string categoryName)
             {
                 return $"{categoryName} adlı kategori başarıyla eklenmiştir.";
@@ -46,6 +55,10 @@ namespace Blogesque.Services.Utilities
             {
                 if (isPlural) return "Makaleler bulunamadı.";
                 return "Böyle bir makale bulunamadı.";
+            }
+            public static string NotFoundById(int articleId)
+            {
+                return $"{articleId} makale koduna ait bir makale bulunamadı.";
             }
             public static string Add(string articleTitle)
             {
@@ -106,6 +119,39 @@ namespace Blogesque.Services.Utilities
             {
                 return $"{createdByName} tarafından eklenen yorum başarıyla arşivden geri getirilmiştir.";
             }
+        }
+        public static class User
+        {
+            //public static string NotFound(bool isPlural)
+            //{
+            //    if (isPlural) return "Hiç bir kategori bulunamadı.";
+            //    return "Böyle bir kategori bulunamadı.";
+            //}
+            public static string NotFoundById(int userId)
+            {
+                return $"{userId} kullanıcı koduna ait bir kullanıcı bulunamadı.";
+            }
+            //public static string Add(string categoryName)
+            //{
+            //    return $"{categoryName} adlı kategori başarıyla eklenmiştir.";
+            //}
+
+            //public static string Update(string categoryName)
+            //{
+            //    return $"{categoryName} adlı kategori başarıyla güncellenmiştir.";
+            //}
+            //public static string Delete(string categoryName)
+            //{
+            //    return $"{categoryName} adlı kategori başarıyla silinmiştir.";
+            //}
+            //public static string HardDelete(string categoryName)
+            //{
+            //    return $"{categoryName} adlı kategori başarıyla veritabanından silinmiştir.";
+            //}
+            //public static string UndoDelete(string categoryName)
+            //{
+            //    return $"{categoryName} adlı kategori başarıyla arşivden geri getirilmiştir.";
+            //}
         }
     }
 }
