@@ -1,0 +1,11 @@
+﻿using Blogesque.Entities.Dtos;
+
+namespace Blogesque.Mvc.Areas.Admin.Models
+{
+    public class CommentUpdateAjaxViewModel
+    {
+        public CommentUpdateDto CommentUpdateDto { get; set; }
+        public string CommentUpdatePartial { get; set; }
+        public CommentDto CommentDto { get; set; }
+    }
+}
