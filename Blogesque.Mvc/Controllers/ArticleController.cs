@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Blogesque.Mvc.Models;
 using Blogesque.Services.Abstract;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,16 @@ namespace Blogesque.Mvc.Controllers
             _articleService = articleService;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Search(string keyword, int currentPage = 1, int pageSize = 5, bool isAscending = false)
         {
-            return View();
+            var searchResult = await _articleService.SearchAsync(keyword, currentPage, pageSize, isAscending);
+            if (searchResult.ResultStatus == ResultStatus.Success)
+                return View(new ArticleSearchViewModel
+                {
+                    ArticleListDto = searchResult.Data,
+                    Keyword = keyword
+                });
+            return NotFound();
         }
         [HttpGet]
         public async Task<IActionResult> Detail(int articleId)
