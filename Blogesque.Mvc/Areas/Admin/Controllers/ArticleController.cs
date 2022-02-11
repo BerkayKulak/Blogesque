@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Blogesque.Mvc.Areas.Admin.Models;
 using Blogesque.Services.Abstract;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,12 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
     public class ArticleController : Controller
     {
         private readonly IArticleService _articleService;
+        private readonly ICategoryService _categoryService;
 
-        public ArticleController(IArticleService articleService)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService)
         {
             _articleService = articleService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -23,9 +26,18 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             return NotFound();
         }
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            return View();
+            var result = await _categoryService.GetAllByNonDeletedAsync();
+            if (result.ResultStatus == ResultStatus.Success)
+            {
+                return View(new ArticleAddViewModel
+                {
+                    Categories = result.Data.Categories
+                });
+            }
+
+            return NotFound();
         }
     }
 }
