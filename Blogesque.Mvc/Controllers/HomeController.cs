@@ -10,6 +10,7 @@ using NToastNotify;
 
 namespace Blogesque.Mvc.Controllers
 {
+    [Route("/")]
     public class HomeController : Controller
     {
         private readonly IArticleService _articleService;
@@ -26,6 +27,9 @@ namespace Blogesque.Mvc.Controllers
             _aboutUsPageInfoWriter = aboutUsPageInfoWriter;
             _aboutUsPageInfo = aboutUsPageInfo.Value;
         }
+        [Route("index")]
+        [Route("anasayfa")]
+        [Route("")]
         [HttpGet]
         public async Task<IActionResult> Index(int? categoryId, int currentPage = 1, int pageSize = 5, bool isAscending = false)
         {
@@ -34,16 +38,20 @@ namespace Blogesque.Mvc.Controllers
                 : _articleService.GetAllByPagingAsync(categoryId.Value, currentPage, pageSize, isAscending));
             return View(articlesResult.Data);
         }
+        [Route("hakkimizda")]
+        [Route("hakkinda")]
         [HttpGet]
         public IActionResult About()
         {
             return View(_aboutUsPageInfo);
         }
+        [Route("iletisim")]
         [HttpGet]
         public IActionResult Contact()
         {
             return View();
         }
+        [Route("iletisim")]
         [HttpPost]
         public IActionResult Contact(EmailSendDto emailSendDto)
         {
