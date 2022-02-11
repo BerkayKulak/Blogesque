@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text.Json;
+using System.Threading.Tasks;
 using AutoMapper;
 using Blogesque.Entities.ComplexTypes;
 using Blogesque.Entities.Concrete;
@@ -125,6 +126,14 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             var categories = await _categoryService.GetAllByNonDeletedAndActiveAsync();
             articleUpdateViewModel.Categories = categories.Data.Categories;
             return View(articleUpdateViewModel);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int articleId)
+        {
+            var result = await _articleService.DeleteAsync(articleId, LoggedInUser.UserName);
+            var articleResult = JsonSerializer.Serialize(result);
+            return Json(articleResult);
         }
 
     }
