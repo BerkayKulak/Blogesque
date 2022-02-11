@@ -147,6 +147,7 @@ namespace Blogesque.Services.Concrete
 
         public async Task<IDataResult<ArticleListDto>> GetAllByPagingAsync(int? categoryId, int currentPage = 1, int pageSize = 5, bool isAscending = false)
         {
+            pageSize = pageSize > 20 ? 20 : pageSize;
             var articles = categoryId == null
                 ? await UnitOfWork.Articles.GetAllAsync(a => a.IsActive && !a.IsDeleted, a => a.Category, a => a.User)
                 : await UnitOfWork.Articles.GetAllAsync(a => a.CategoryId == categoryId && a.IsActive && !a.IsDeleted,
@@ -160,7 +161,8 @@ namespace Blogesque.Services.Concrete
                 CategoryId = categoryId == null ? null : categoryId.Value,
                 CurrentPage = currentPage,
                 PageSize = pageSize,
-                TotalCount = articles.Count
+                TotalCount = articles.Count,
+                IsAscending = isAscending
             });
         }
 
