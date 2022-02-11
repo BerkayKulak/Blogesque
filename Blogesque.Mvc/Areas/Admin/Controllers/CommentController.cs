@@ -9,6 +9,7 @@ using Blogesque.Mvc.Helpers.Abstract;
 using Blogesque.Services.Abstract;
 using Blogesque.Shared.Utilities.Extensions;
 using Blogesque.Shared.Utilities.Results.ComplexTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,12 +23,14 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
         {
             _commentService = commentService;
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var result = await _commentService.GetAllByNonDeletedAsync();
             return View(result.Data);
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> GetAllComments()
         {
@@ -38,6 +41,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             });
             return Json(commentsResult);
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> GetDetail(int commentId)
         {
@@ -51,6 +55,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Delete")]
         [HttpPost]
         public async Task<IActionResult> Delete(int commentId)
         {
@@ -58,6 +63,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             var commentResult = JsonSerializer.Serialize(result);
             return Json(commentResult);
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpPost]
         public async Task<IActionResult> Approve(int commentId)
         {
@@ -68,6 +74,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
             });
             return Json(commentResult);
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpGet]
         public async Task<IActionResult> Update(int commentId)
         {
@@ -81,6 +88,7 @@ namespace Blogesque.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpPost]
         public async Task<IActionResult> Update(CommentUpdateDto commentUpdateDto)
         {
