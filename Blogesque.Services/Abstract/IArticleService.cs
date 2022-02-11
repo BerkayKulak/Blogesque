@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Blogesque.Entities.ComplexTypes;
 using Blogesque.Entities.Dtos;
 using Blogesque.Shared.Utilities.Results.Abstract;
 
@@ -21,6 +22,10 @@ namespace Blogesque.Services.Abstract
 
         Task<IDataResult<ArticleListDto>> GetAllByPagingAsync(int? categoryId, int currentPage = 1, int pageSize = 5,
             bool isAscending = false);
+
+        Task<IDataResult<ArticleListDto>> GetAllByUserIdOnFilter(int userId, FilterBy filterBy, OrderBy orderBy,
+            bool isAscending, int takeSize, int categoryId, DateTime startAt, DateTime endAt, int minViewCount,
+            int maxViewCount, int minCommentCount, int maxCommentCount);
 
         Task<IDataResult<ArticleListDto>> SearchAsync(string keyword, int currentPage = 1, int pageSize = 5,
             bool isAscending = false);
