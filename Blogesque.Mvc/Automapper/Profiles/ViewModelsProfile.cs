@@ -9,6 +9,7 @@ namespace Blogesque.Mvc.Automapper.Profiles
         public ViewModelsProfile()
         {
             CreateMap<ArticleAddViewModel, ArticleAddDto>();
+            CreateMap<ArticleUpdateDto, ArticleUpdateViewModel>().ReverseMap();
         }
     }
 }
