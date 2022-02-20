@@ -139,26 +139,42 @@ This is an example of how to list things you need to use the software and how to
   <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   ```
   
-* dotnet Villagenix.Server.csproj
+* dotnet Blogesque.Entities.csproj
   ```sh
-  <PackageReference Include="AutoMapper" Version="10.1.1" />
-  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
-  <PackageReference Include="Blazored.TextEditor" Version="1.0.3" />
-  <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
-  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
-  <PrivateAssets>all</PrivateAssets>
-  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-  </PackageReference>
-  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
-  <PrivateAssets>all</PrivateAssets>
-  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-  </PackageReference>
-  <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
+  <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.14" />
   ```
+* dotnet Blogesque.Mvc.csproj
+  ```sh
+   <PackageReference Include="AutoMapper" Version="11.0.1" />
+   <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+   <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.14" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
+   <PrivateAssets>all</PrivateAssets>
+   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+   </PackageReference>
+   <PackageReference Include="NLog" Version="4.7.13" />
+   <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
+   <PackageReference Include="NToastNotify" Version="7.0.0" />
+   <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  ```  
+  
+ * dotnet Blogesque.Services.csproj
+  ```sh
+   <PackageReference Include="AutoMapper" Version="11.0.1" />
+   <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+   <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  ```  
+  
+   * dotnet Blogesque.Services.csproj
+  ```sh
+    <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+  ```  
+ 
+
 
 
 ### Installation
