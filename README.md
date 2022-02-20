@@ -184,7 +184,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 1. Clone the repo
    ```sh
-   https://github.com/BerkayKulak/Blazor-Villagenix.git
+   https://github.com/BerkayKulak/Blogesque.git
    ```
 2. Update Nuget packages
    ```sh
@@ -209,26 +209,13 @@ _Below is an example of how you can instruct your audience on installing and set
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-# Go into the repository API
-$ cd \Villagenix\Villagenix.API
+# Go into the Blogesque.Mvc
+$ cd \Blogesque\Blogesque.Mvc
 
 # Run the app
 $ dotnet run
 $ dotnet run --project ./projects/proj1/proj1.csproj
 
-# Go into the repository Server
-$ cd \Villagenix\Villagenix.Server
-
-# Run the app
-$ dotnet run
-$ dotnet run --project ./projects/proj1/proj1.csproj
-
-# Go into the repository Client
-$ cd \Villagenix\Villagenix.Client
-
-# Run the app
-$ dotnet run
-$ dotnet run --project ./projects/proj1/proj1.csproj
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -238,9 +225,9 @@ $ dotnet run --project ./projects/proj1/proj1.csproj
 <!-- ROADMAP -->
 ## Bug / Feature Request
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/BerkayKulak/Blazor-Villagenix/issues/new) by including your search query and the expected result.
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](https://github.com/BerkayKulak/Blogesque/issues/new) by including your search query and the expected result.
 
-If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/BerkayKulak/Blazor-Villagenix/issues/new). Please include sample queries and their corresponding results.
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/BerkayKulak/Blogesque/issues/new). Please include sample queries and their corresponding results.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -278,6 +265,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Berkay Kulak - (https://www.linkedin.com/in/berkay-kulak-3442311b1/) - kulakberkay15@gmail.com
 
-Project Link:   (https://github.com/BerkayKulak/Blazor-Villagenix)
+Project Link:   (https://github.com/BerkayKulak/Blogesque)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
