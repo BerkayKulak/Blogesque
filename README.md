@@ -110,21 +110,23 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* dotnet Villagenix.API.csproj
+* dotnet Blogesque.Data.csproj
   ```sh
-  <PackageReference Include="AutoMapper" Version="10.1.1" />
-  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
-  <PackageReference Include="Mailjet.Api" Version="1.2.3" />
-  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.2" />
-  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
-  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
+ <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.14" />
+ <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
+ <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
+ <PrivateAssets>all</PrivateAssets>
+ <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+ </PackageReference>
+ <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
+ <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.14">
+ <PrivateAssets>all</PrivateAssets>
+ <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+ </PackageReference>
   ```
   
 * dotnet Villagenix.Client.csproj
