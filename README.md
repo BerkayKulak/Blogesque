@@ -116,17 +116,17 @@ This section should list any major frameworks/libraries used to bootstrap your p
 This is an example of how to list things you need to use the software and how to install them.
 * dotnet Blogesque.Data.csproj
   ```sh
- <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.14" />
- <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
- <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
- <PrivateAssets>all</PrivateAssets>
- <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
- </PackageReference>
- <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
- <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.14">
- <PrivateAssets>all</PrivateAssets>
- <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
- </PackageReference>
+   <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.14" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
+   <PrivateAssets>all</PrivateAssets>
+   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+   </PackageReference>
+   <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.14">
+   <PrivateAssets>all</PrivateAssets>
+   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+   </PackageReference>
   ```
   
 * dotnet Villagenix.Client.csproj
