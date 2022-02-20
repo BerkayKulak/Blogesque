@@ -33,7 +33,11 @@
 
 
 Here's why:
-Blazor is an exciting new part of .NET Core (.NET 5) designed for building rich web user interfaces in C#. This course will help developers transition from building basic sample apps to implementing more real world concepts, design patterns, and features.
+This tutorial teaches ASP.NET Core MVC with controllers and views. Razor Pages is a new alternative in ASP.NET Core, a page-based programming model that makes building web UI easier and more productive. We recommend you try the Razor Pages tutorial before the MVC version. The Razor Pages tutorial:
+
+- Is easier to follow.
+- Covers more features.
+- Is the preferred approach for new app development.
 
 * You should implement DRY principles to the rest of your life :smile:
 
