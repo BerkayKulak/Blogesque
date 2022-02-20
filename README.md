@@ -158,14 +158,14 @@ This is an example of how to list things you need to use the software and how to
   <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   ```  
   
- * dotnet Blogesque.Services.csproj
+* dotnet Blogesque.Services.csproj
   ```sh
   <PackageReference Include="AutoMapper" Version="11.0.1" />
   <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
   ```  
   
-   * dotnet Blogesque.Services.csproj
+* dotnet Blogesque.Shared.csproj
   ```sh
   <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="5.1.0" />
   <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
