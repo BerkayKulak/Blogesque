@@ -33,23 +33,37 @@
 
 
 Here's why:
-This tutorial teaches ASP.NET Core MVC with controllers and views. Razor Pages is a new alternative in ASP.NET Core, a page-based programming model that makes building web UI easier and more productive. We recommend you try the Razor Pages tutorial before the MVC version. The Razor Pages tutorial:
+This tutorial teaches ASP.NET Core MVC with controllers and views. Razor Pages is a new alternative in ASP.NET Core, a page-based programming model that makes building web UI easier and more productive. We recommend you try the Razor Pages tutorial before the MVC version. 
 
 - Is easier to follow.
 - Covers more features.
 - Is the preferred approach for new app development.
 
-* You should implement DRY principles to the rest of your life :smile:
+With a layered architecture, applications can enforce restrictions on which layers can communicate with other layers. This architecture helps to achieve encapsulation. When a layer is changed or replaced, only those layers that work with it should be impacted. By limiting which layers depend on which other layers, the impact of changes can be mitigated so that a single change doesn't impact the entire application.
 
-For years JavaScript frameworks have dominated the front end/client side development! But things are about to change with Blazor!
+## You will find answers to the following questions
 
-- How do you scale an existing application? 
-- How do you architect a mid-large scale project?
-- How to correctly process payments?
-- Add changes to reflect the changes made
-- How to efficiently understand Blazor and use it in real world projects?
+- How do we develop a project with N-Layer Architecture?
+- How to use the Code First Approach with Entity Framework Core 5.0?
+- How do We Configure a Detailed Database with the Fluent API?
+- How do we apply a Generic Repository Design Pattern
+- How to implement a Unit of Work Design Pattern?
+- What can we do with Asynchronous Programming.
+- How do we implement Object-Oriented Programming in our project
+- How do we make Front-End Validations with Data Annotations
+- How do we implement Dependency Injection on Layered Architecture.
+- Is it necessary to write Extension Methods
+- What is the Result Structure
+- How do we use DTO (Data Transfer Object)
+- Use of the AutoMapper Library
+- How to Perform the Use of the AutoMapper Library
+- How to apply Paging, Sorting, Filtering to a our project.
+- How do we perform Image & File Upload Operations.
+- How do we set up the Authentication & Authorization mechanization.
+- How do we write javascript-based software such as Ajax, Jquery.
+- How do I integrate Toaster, DataTables, Trumbowyg, Select2.
 
-help developers transition from building basic sample apps to implementing more real world concepts, design patterns, and features.
+
 
 
 
@@ -57,21 +71,37 @@ help developers transition from building basic sample apps to implementing more 
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
-* [Asp.Net Core API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)
-* [MSSql](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
+* [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
 * [MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-6.0)
+* [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
+* [Jquerry](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
 
 ### Technologies and Methods
 
-- Real world application using Blazor Web Assembly
-- Manage admin features using Blazor Server
-- Build .NET 5 API from scratch
-- Consume .NET 5 API using Blazor WASM
-- Authentication & Authorization in Blazor Server and WASM
-- Integrate Stripe Payments in Blazor WASM
-- Repository Pattern and Dependency Injection
-- Deploying .NET API, Blazor WASM & Server to Azure
+- Developing a Project With N Layered Architecture
+- Entity Framework Core 5.0 Code First
+- Database Configurations With Fluent API
+- Generic Repository Pattern
+- Unit of Work Pattern
+- Async Programming
+- OOP
+- Dependency Injection In N Layered Architecture
+- Extension Methods
+- Custom Result Structure
+- DTO (Data Transfer Object)
+- AutoMapper AutoMapper Library
+- MD5 Password Hashing
+- SHA512 Password Hashing
+- Paging, Sorting, Filtering
+- LINQ
+- File & Image Upload
+- User Management System with Identity
+- Ajax, Jquerry, Jquerry UI
+- Sweet Alert2, Toastr, DataTables, Trumbowyg, Select2
+- Bootstrap 4.5
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
