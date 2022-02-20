@@ -35,9 +35,9 @@
 Here's why:
 ASP.NET Core MVC with controllers and views. Razor Pages is a new alternative in ASP.NET Core, a page-based programming model that makes building web UI easier and more productive. We recommend you try the Razor Pages tutorial before the MVC version. 
 
-- Is easier to follow.
+- Easier to follow.
 - Covers more features.
-- Is the preferred approach for new app development.
+- Preferred approach for new app development.
 
 With a layered architecture, applications can enforce restrictions on which layers can communicate with other layers. This architecture helps to achieve encapsulation. When a layer is changed or replaced, only those layers that work with it should be impacted. By limiting which layers depend on which other layers, the impact of changes can be mitigated so that a single change doesn't impact the entire application.
 
