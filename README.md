@@ -70,7 +70,7 @@ With a layered architecture, applications can enforce restrictions on which laye
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. 
 
 * [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
 * [MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-6.0)
